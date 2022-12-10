@@ -1,4 +1,4 @@
-SRCS		= ./srcs/errors_handling.c ./srcs/fdf.c ./srcs/parsing.c 
+SRCS		= ./srcs/errors_handling.c ./srcs/fdf.c ./srcs/parsing.c ./srcs/parsing_utils.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -29,6 +29,9 @@ clean:
 			rm -rf ./srcs/*.d
 			
 fclean:		clean
+			make -C ./libft/ft_printf fclean
+			make -C ./libft/get_next_line fclean
+			make -C ./libft/ fclean
 			rm -rf $(FDF) ./lib/*.a
 
 re:			fclean all
