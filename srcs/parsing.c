@@ -65,6 +65,7 @@ char	***get_tabs(t_data *data)
 	}
 	ft_free_tab(tab);
 	free(data -> maps);
+	data -> maps = NULL;
 	return (tabs);
 }
 
