@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		ft_error("Usage : ./fdf maps\n", 1);
 	info.maps = argv[1];
+	init(&info);
 	parse_maps(&info);
 }

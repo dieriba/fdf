@@ -40,6 +40,7 @@ typedef struct	t_data
 # include <math.h>
 
 int		ft_error(char *str, int code);
+void	init(t_data *data);
 void	print_struct(t_data *data);
 void    parse_maps(t_data *data);
 void    print_err_and_exit(t_data *data, char *str, int syserror);
