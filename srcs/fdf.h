@@ -38,6 +38,7 @@ typedef struct	t_data
 # include <fcntl.h>
 # include <errno.h>
 # include <math.h>
+# include "../mlx/mlx.h"
 
 int		ft_error(char *str, int code);
 void	init(t_data *data);
