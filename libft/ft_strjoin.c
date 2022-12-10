@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*buff;
 
-	if (!s1 || !s2)
+	if (!s2)
 		return (NULL);
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
@@ -27,5 +27,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_memcpy(buff, s1, i);
 	ft_memcpy(buff + i, s2, (j + 1));
+	free((char *)s1);
 	return (buff);
 }

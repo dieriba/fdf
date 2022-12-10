@@ -1,14 +1,6 @@
 #ifndef FDF_H
 #define FDF_H
 
-typedef struct t_cord;
-typedef struct t_data
-{
-    int width;
-    int height;
-    t_cord  **point;
-}   t_data;
-
 typedef struct t_cord
 {
     int x;
@@ -17,6 +9,16 @@ typedef struct t_cord
     int color;
 }   t_cord;
 
+typedef struct t_data
+{
+    char	*maps;
+    int		width;
+    int		height;
+    t_cord	**point;
+}   t_data;
+
+
+# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/wait.h>
@@ -28,5 +30,9 @@ typedef struct t_cord
 # include <fcntl.h>
 # include <errno.h>
 # include <math.h>
+
+int		ft_error(char *str, int code);
+void    parse_maps(t_data *data);
+void    print_err_and_exit(t_data *data, char *str, int syserror);
 
 #endif

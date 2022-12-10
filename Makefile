@@ -1,4 +1,4 @@
-SRCS		=	
+SRCS		= ./srcs/errors_handling.c ./srcs/fdf.c ./srcs/parsing.c 
 
 OBJS		= $(SRCS:.c=.o)
 
