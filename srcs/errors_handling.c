@@ -30,7 +30,6 @@ void	free_all(t_data *data)
 
 void    print_err_and_exit(t_data *data, char *str, int syserror)
 {
-	(void) data;
 	if (syserror)
 		perror(str);
 	else

@@ -23,4 +23,6 @@ int	main(int argc, char **argv)
 	info.maps = argv[1];
 	init(&info);
 	parse_maps(&info);
+	print_err_and_exit(&info, NULL, 0);
+	free_all(&info);
 }

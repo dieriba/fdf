@@ -45,5 +45,5 @@ void	print_struct(t_data *data);
 void    parse_maps(t_data *data);
 void    print_err_and_exit(t_data *data, char *str, int syserror);
 void	free_tabs(t_data *data, char ****tabs, char **tab, int err);
-
+void	free_all(t_data *data);
 #endif
