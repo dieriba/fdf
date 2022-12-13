@@ -4,6 +4,10 @@ void	set_num_color(t_cord *point, char ***tabs, char *str)
 {
 	char	**tab;
 
+	point -> dx = point -> x;
+	point -> dy = point -> y;
+	if (!ft_strchr(str, ','))
+		return ;
 	tab = ft_split(str, ',');
 	if (!tab)
 		free_tabs(point -> data, &tabs, NULL, 1);
@@ -31,10 +35,9 @@ void	set_cord(t_data *data, char ***tabs)
 		{
 			points[i][j].x  = j;
 			points[i][j].y = i;
-			if (!ft_strchr(tabs[i][j], ','))
-				points[i][j].z = ft_atoi(tabs[i][j]);
-			else
-				set_num_color(&points[i][j], tabs, tabs[i][j]);
+			points[i][j].color = 0;
+			points[i][j].z = ft_atoi(tabs[i][j]);
+			set_num_color(&points[i][j], tabs, tabs[i][j]);
 		}
 	}
 	data -> points = points;

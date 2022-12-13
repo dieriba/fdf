@@ -1,12 +1,5 @@
 #include "fdf.h"
 
-
-
-
-
-
-
-
 int	ft_error(char *str, int code)
 {
 	ft_putendl_fd(str, 1);
@@ -26,6 +19,14 @@ void	free_all(t_data *data)
 	}
 	if (data -> maps)
 		free(data -> maps);
+	if (data -> mlx_ptr && data -> image -> mlx_img)
+		mlx_destroy_image(data -> mlx_ptr, data -> image -> mlx_img);
+	if (data -> mlx_ptr)
+	{
+		mlx_destroy_window(data -> mlx_ptr, data -> win_ptr);
+		mlx_destroy_display(data -> mlx_ptr);
+		free(data -> mlx_ptr);
+	}
 }
 
 void    print_err_and_exit(t_data *data, char *str, int syserror)
