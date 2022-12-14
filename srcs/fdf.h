@@ -1,6 +1,8 @@
 #ifndef FDF_H
 #define FDF_H
 
+# define BETA  -0.785398
+# define ALPHA  0.610865238
 typedef struct t_cord t_cord;
 typedef struct t_data t_data;
 typedef struct t_img  t_img;
@@ -38,7 +40,7 @@ typedef struct	t_data
     char	*img_addr;
     void	*mlx_ptr;
     void	*win_ptr;
-    int     zoom;
+    float     zoom;
 	t_img	*image;
     t_cord	**points;
 }   t_data;
