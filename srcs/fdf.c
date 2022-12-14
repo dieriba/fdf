@@ -1,19 +1,5 @@
 #include "fdf.h"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int	main(int argc, char **argv)
 {
 	t_data	info;
@@ -28,6 +14,7 @@ int	main(int argc, char **argv)
 	init_mlx(&info);
 	image.data = &info;
 	mlx_hook(info.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &info);
+	mlx_hook(info.win_ptr, 17, 0, &close_loop, &info);
 	image.mlx_img = mlx_new_image(info.mlx_ptr, info.width, info.height);
 	info.image -> addr = mlx_get_data_addr(info.image -> mlx_img, &info.image -> bpp,
 	&info.image -> line_len, &info.image -> endian);

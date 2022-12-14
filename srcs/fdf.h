@@ -40,7 +40,7 @@ typedef struct	t_data
     char	*img_addr;
     void	*mlx_ptr;
     void	*win_ptr;
-    float     zoom;
+    int     zoom;
 	t_img	*image;
     t_cord	**points;
 }   t_data;
@@ -72,4 +72,5 @@ void    print_err_and_exit(t_data *data, char *str, int syserror);
 void	free_tabs(t_data *data, char ****tabs, char **tab, int err);
 void    set_image(t_data *data);
 void	free_all(t_data *data);
+int     close_loop(t_data *info);
 #endif

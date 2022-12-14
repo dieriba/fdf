@@ -20,5 +20,5 @@ void	init(t_data *data)
 	data -> width = 1920;
 	data -> height = 1080;
 	data -> points = NULL;
-	data -> zoom = 20;
+	data -> zoom = 2;
 }
