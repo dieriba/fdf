@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors_handling.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/15 14:57:29 by dtoure            #+#    #+#             */
+/*   Updated: 2022/12/15 14:57:47 by dtoure           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 int	ft_error(char *str, int code)
@@ -9,7 +21,7 @@ int	ft_error(char *str, int code)
 void	free_all(t_data *data)
 {	
 	size_t	i;
-	
+
 	i = -1;
 	if (data -> points)
 	{
@@ -29,7 +41,7 @@ void	free_all(t_data *data)
 	}
 }
 
-void    print_err_and_exit(t_data *data, char *str, int syserror)
+void	print_err_and_exit(t_data *data, char *str, int syserror)
 {
 	if (syserror)
 		perror(str);

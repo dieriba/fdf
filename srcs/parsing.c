@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/15 13:14:31 by dtoure            #+#    #+#             */
+/*   Updated: 2022/12/15 13:16:02 by dtoure           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void	set_num_color(t_cord *point, char ***tabs, char *str)
+void	set_num_color(t_data *data, t_cord *point, char ***tabs, char *str)
 {
 	char	**tab;
 
 	point -> dx = point -> x;
 	point -> dy = point -> y;
+	point -> data = data;
 	if (!ft_strchr(str, ','))
 		return ;
 	tab = ft_split(str, ',');
@@ -21,7 +34,7 @@ void	set_cord(t_data *data, char ***tabs)
 	t_cord	**points;
 	size_t	i;
 	size_t	j;
-	
+
 	j = -1;
 	i = -1;
 	points = ft_calloc(sizeof(t_cord *), data -> tabrow + 1);
@@ -33,11 +46,11 @@ void	set_cord(t_data *data, char ***tabs)
 		points[i] = ft_calloc(sizeof(t_cord), data -> tablen + 1);
 		while (tabs[i][++j])
 		{
-			points[i][j].x  = j;
+			points[i][j].x = j;
 			points[i][j].y = i;
 			points[i][j].color = 0;
 			points[i][j].z = ft_atoi(tabs[i][j]);
-			set_num_color(&points[i][j], tabs, tabs[i][j]);
+			set_num_color(data, &points[i][j], tabs, tabs[i][j]);
 		}
 	}
 	data -> points = points;
@@ -57,7 +70,7 @@ char	***get_tabs(t_data *data)
 		print_err_and_exit(data, "error with memory allocation", 0);
 	tablen = ft_tab_len(tab);
 	data -> tabrow = tablen;
-	tabs = ft_calloc(sizeof(char**), tablen + 1);
+	tabs = ft_calloc(sizeof(char **), tablen + 1);
 	if (!tabs)
 		free_tabs(data, &tabs, tab, 1);
 	while (++i < tablen)
@@ -99,14 +112,12 @@ void	read_maps(t_data *data, char **maps)
 	(*maps) = line;
 }
 
-
-void    parse_maps(t_data *data)
+void	parse_maps(t_data *data)
 {
 	char	***tabs;
 
-    read_maps(data, &data -> maps);
+	read_maps(data, &data -> maps);
 	tabs = get_tabs(data);
 	data -> tablen = ft_tab_len(*tabs);
 	set_cord(data, tabs);
-	print_struct(data);
 }
