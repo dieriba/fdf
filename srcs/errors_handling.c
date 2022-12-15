@@ -6,7 +6,7 @@
 /*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:57:29 by dtoure            #+#    #+#             */
-/*   Updated: 2022/12/15 14:57:47 by dtoure           ###   ########.fr       */
+/*   Updated: 2022/12/15 16:12:52 by dtoure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_all(t_data *data)
 			free(data -> points[i]);
 		free(data -> points);
 	}
-	if (data -> maps)
+	if (data -> maps && data -> fd > 0)
 		free(data -> maps);
 	if (data -> mlx_ptr && data -> image -> mlx_img)
 		mlx_destroy_image(data -> mlx_ptr, data -> image -> mlx_img);

@@ -27,14 +27,14 @@ $(FDF):		${OBJS}
 			$(CC) $(CFLAGS) ${OBJS} -g3 -L./lib -lft -lprintf -lgnl -lm $(MLX_FLAGS) -o $(FDF)
 
 clean:
-			rm -rf ./srcs/*.o
-			rm -rf ./srcs/*.d
+			rm -rf $(OBJS)
+			rm -rf $(DEPS)
 			
 fclean:		clean
 			make -C ./libft/ft_printf fclean
 			make -C ./libft/get_next_line fclean
 			make -C ./libft/ fclean
-			rm -rf $(FDF) ./lib/*.a
+			rm -rf $(FDF) ./lib/libprintf.a ./lib/libgnl.a ./lib/libft.a 
 
 re:			fclean all
 

@@ -6,7 +6,7 @@
 /*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:33:45 by dtoure            #+#    #+#             */
-/*   Updated: 2022/12/15 15:05:11 by dtoure           ###   ########.fr       */
+/*   Updated: 2022/12/15 16:10:52 by dtoure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct t_cord
 typedef struct t_data
 {
 	int		tabrow;
+	int		fd;
 	float	dx;
 	float	dy;
 	float	alpha;

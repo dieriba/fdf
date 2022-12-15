@@ -6,7 +6,7 @@
 /*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:22:32 by dtoure            #+#    #+#             */
-/*   Updated: 2022/12/15 14:28:50 by dtoure           ###   ########.fr       */
+/*   Updated: 2022/12/15 15:56:11 by dtoure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,6 @@ void	init(t_data *data)
 	data -> z_zoom = 1;
 	data -> alpha = ALPHA;
 	data -> beta = BETA;
+	data -> mlx_ptr = NULL;
+	data -> image = NULL;
 }

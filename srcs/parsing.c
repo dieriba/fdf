@@ -6,7 +6,7 @@
 /*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:14:31 by dtoure            #+#    #+#             */
-/*   Updated: 2022/12/15 13:16:02 by dtoure           ###   ########.fr       */
+/*   Updated: 2022/12/15 16:17:24 by dtoure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,28 +87,28 @@ char	***get_tabs(t_data *data)
 
 void	read_maps(t_data *data, char **maps)
 {
-	int		fd;
 	char	*line;
 	char	*tmp;
 
 	line = NULL;
-	fd = open((*maps), O_RDONLY);
-	if (fd == -1)
+	data -> fd = open((*maps), O_RDONLY);
+	if (data -> fd == -1)
 		print_err_and_exit(data, "Error", 1);
 	while (1)
 	{
-		tmp = get_next_line(fd, 1);
+		tmp = get_next_line(data -> fd, 1);
 		if (!tmp)
 			break ;
 		line = ft_strjoin(line, tmp);
 		if (!line)
 		{
 			free(tmp);
+			data -> fd = -1;
 			print_err_and_exit(data, "error with allocation memory", 0);
 		}
 		free(tmp);
 	}
-	get_next_line(fd, 0);
+	get_next_line(data -> fd, 0);
 	(*maps) = line;
 }
 
@@ -117,6 +117,8 @@ void	parse_maps(t_data *data)
 	char	***tabs;
 
 	read_maps(data, &data -> maps);
+	if (!data -> maps)
+		print_err_and_exit(data, "error with allocation memory", 0);
 	tabs = get_tabs(data);
 	data -> tablen = ft_tab_len(*tabs);
 	set_cord(data, tabs);

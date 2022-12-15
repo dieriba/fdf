@@ -6,7 +6,7 @@
 /*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:16:24 by dtoure            #+#    #+#             */
-/*   Updated: 2022/12/15 13:21:47 by dtoure           ###   ########.fr       */
+/*   Updated: 2022/12/15 16:02:16 by dtoure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int	actions_hooks(t_data *data)
 				data -> width, data -> height);
 		data -> image -> addr = mlx_get_data_addr(data -> image -> mlx_img,
 				&data -> image -> bpp,
-				&data -> image -> line_len, &data -> image -> endian);
+				&data -> image -> line_len, &data
+				-> image -> endian);
 		set_image(data);
 		data -> redraw = 0;
 	}
