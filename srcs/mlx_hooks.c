@@ -6,7 +6,7 @@
 /*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:16:24 by dtoure            #+#    #+#             */
-/*   Updated: 2022/12/15 16:02:16 by dtoure           ###   ########.fr       */
+/*   Updated: 2022/12/16 20:52:18 by dtoure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int	handle_keypress(int keysym, t_data *data)
 	if (keysym == 101)
 		data -> zoom -= 1;
 	if (keysym == 65364)
-		data -> vr_move += 100;
+		data -> vr_move += 1;
 	if (keysym == 65362)
-		data -> vr_move -= 100;
+		data -> vr_move -= 1;
 	if (keysym == 65363)
-		data -> hr_move += 100;
+		data -> hr_move += 1;
 	if (keysym == 65361)
-		data -> hr_move -= 100;
+		data -> hr_move -= 1;
 	if (keysym == 100)
 		data -> alpha += 1;
 	options(keysym, data);
